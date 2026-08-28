@@ -370,7 +370,7 @@
              */
 
             const scriptURL =
-                "YOUR_GOOGLE_APPS_SCRIPT_URL";
+                "https://script.google.com/macros/s/AKfycbydf_n9obsUPC6hq1E39vF6DmlyzJLIBNoYyJfjOcDVIJaNqzmhzc6DbyjXrkbI5kpV/exec";
 
 
             submitButton.disabled = true;
@@ -474,20 +474,3 @@ function doPost(e) {
         );
 }
 
-Final setup
-Create your Google Sheet.
-Add Timestamp, Name, Email, Message in row 1.
-Open Extensions → Apps Script.
-Paste the Apps Script code.
-Click Deploy → New deployment.
-Select Web app.
-Set Execute as: Me.
-Set Who has access: Anyone.
-Deploy and copy the Web App URL.
-In contact.html, replace:
-const scriptURL = "YOUR_GOOGLE_APPS_SCRIPT_URL";
-
-
-with your actual Apps Script URL.
-
-After that, every submission from your Contact Us page will be added as a new row in your Google Sheet.
