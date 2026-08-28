@@ -1,151 +1,493 @@
-<style>
-    body{
-        margin:0;
-        font-family:Arial,sans-serif;
-        background:#fff5f7;
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    header{
-        background:linear-gradient(135deg,#ff6f91,#ff9671);
-        color:white;
-        text-align:center;
-        padding:25px;
-        font-size:28px;
-        font-weight:bold;
-    }
+    <title>Contact Us - Beautiful Flower Gallery</title>
 
-    nav{
-        background:#845ec2;
-        text-align:center;
-        padding:15px;
-    }
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
 
-    nav a{
-        color:white;
-        text-decoration:none;
-        margin:0 15px;
-        font-weight:bold;
-        font-size:18px;
-        padding:10px 20px;
-        border-radius:25px;
-        transition:0.3s;
-    }
+        body {
+            background: #fff5f8;
+            min-height: 100vh;
+        }
 
-    nav a:hover{
-        background:white;
-        color:#845ec2;
-    }
+        /* Navigation */
+        nav {
+            background: linear-gradient(135deg, #ff758c, #ff7eb3, #6a89cc);
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
 
-    .contact{
-        width:350px;
-        margin:40px auto;
-        background:white;
-        padding:25px;
-        border-radius:15px;
-        box-shadow:0 5px 15px rgba(0,0,0,0.2);
-    }
+        nav a {
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 0 15px;
+            padding: 12px 30px;
+            border-radius: 50px;
+            background: rgba(255,255,255,0.2);
+            transition: 0.4s;
+        }
 
-    .contact h2{
-        text-align:center;
-        color:#d63384;
-    }
+        nav a:hover {
+            background: white;
+            color: #ff4f81;
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+        }
 
-    input, textarea{
-        width:100%;
-        padding:12px;
-        margin:10px 0;
-        border:1px solid #ddd;
-        border-radius:8px;
-        font-size:15px;
-    }
+        /* Contact Heading */
+        .welcome {
+            text-align: center;
+            padding: 50px 20px 25px;
+        }
 
-    button{
-        width:100%;
-        padding:12px;
-        background:#ff6f91;
-        color:white;
-        border:none;
-        border-radius:25px;
-        cursor:pointer;
-        font-size:16px;
-        font-weight:bold;
-        transition:0.3s;
-    }
+        .welcome h1 {
+            color: #ff4f81;
+            font-size: 45px;
+        }
 
-    button:hover{
-        background:#845ec2;
-    }
+        .welcome p {
+            color: #555;
+            font-size: 20px;
+            margin-top: 15px;
+        }
 
-    .shop{
-        width:350px;
-        margin:20px auto;
-        background:white;
-        padding:20px;
-        border-radius:15px;
-        box-shadow:0 5px 15px rgba(0,0,0,0.15);
-    }
+        /* Main Container */
+        .contact-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 30px;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
 
-    .shop h3{
-        color:#ff4f81;
-        text-align:center;
-    }
+        /* Contact Form */
+        .contact-box {
+            width: 450px;
+            padding: 30px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            transition: 0.3s;
+        }
 
-    .shop p{
-        color:#555;
-        font-size:16px;
-    }
+        .contact-box:hover {
+            transform: translateY(-5px);
+        }
 
-    footer{
-        background:linear-gradient(135deg,#ff6f91,#845ec2);
-        color:white;
-        text-align:center;
-        padding:15px;
-        margin-top:20px;
-    }
-</style>
+        .contact-box h2 {
+            text-align: center;
+            color: #ff6b81;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        .contact-box label {
+            display: block;
+            color: #555;
+            font-weight: bold;
+            margin-top: 15px;
+            margin-bottom: 7px;
+        }
+
+        .contact-box input,
+        .contact-box textarea {
+            width: 100%;
+            padding: 13px;
+            border: 2px solid #ffd1dc;
+            border-radius: 10px;
+            outline: none;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .contact-box input:focus,
+        .contact-box textarea:focus {
+            border-color: #ff6f91;
+            box-shadow: 0 0 8px rgba(255,111,145,0.25);
+        }
+
+        .contact-box textarea {
+            resize: vertical;
+            min-height: 130px;
+        }
+
+        /* Submit Button */
+        button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 14px;
+            border: none;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.4s;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #6a89cc, #845ec2);
+            transform: scale(1.03);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Status Message */
+        #status {
+            text-align: center;
+            margin-top: 15px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        /* Shop Details */
+        .shop-box {
+            width: 350px;
+            padding: 30px;
+            background: white;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            transition: 0.3s;
+        }
+
+        .shop-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .shop-box h2 {
+            color: #ff6b81;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        .shop-box p {
+            color: #666;
+            font-size: 17px;
+            margin: 18px 0;
+            line-height: 1.5;
+        }
+
+        .shop-box strong {
+            color: #ff4f81;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 50px;
+            background: #ff6f91;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 600px) {
+
+            nav {
+                padding: 15px 5px;
+            }
+
+            nav a {
+                font-size: 16px;
+                margin: 5px;
+                padding: 10px 18px;
+            }
+
+            .welcome {
+                padding: 35px 15px 20px;
+            }
+
+            .welcome h1 {
+                font-size: 32px;
+            }
+
+            .welcome p {
+                font-size: 17px;
+            }
+
+            .contact-box,
+            .shop-box {
+                width: 100%;
+                max-width: 450px;
+            }
+
+            .contact-container {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="flower.html">Flower</a>
+        <a href="contact.html">Contact</a>
+    </nav>
 
 
-<header>
-    Beautiful Flower Gallery 
-</header>
+    <!-- Page Heading -->
+    <section class="welcome">
+        <h1>Contact Us</h1>
 
-<nav>
-    <a href="index.html">Home</a>
-    <a href="flower.html">Flower</a>
-    <a href="contact.html">Contact</a>
-</nav>
-
-
-<div class="contact">
-
-    <h2>Contact Us</h2>
-
-    <form>
-        <input type="text" placeholder="Your Name" required>
-
-        <input type="email" placeholder="Your Email" required>
-
-        <textarea rows="5" placeholder="Your Message"></textarea>
-
-        <button type="submit">Send Message</button>
-    </form>
-
-</div>
+        <p>
+            We would love to hear from you 
+        </p>
+    </section>
 
 
-<div class="shop">
+    <!-- Contact Section -->
+    <div class="contact-container">
 
-    <h3>Shop Details</h3>
+        <!-- Contact Form -->
+        <div class="contact-box">
 
-    <p><strong>Address:</strong> Flower City 234 Road</p>
+            <h2>Send Us a Message</h2>
 
-    <p><strong>Phone:</strong> +91 9876543210</p>
+            <form id="contactForm">
 
-    <p><strong>Email:</strong> flower@gmail.com</p>
+                <label for="name">Your Name</label>
 
-</div>
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Enter your name"
+                    required
+                >
 
 
-<footer>
-Flower Gallery | All Rights Reserved
-</footer>
+                <label for="email">Your Email</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    required
+                >
+
+
+                <label for="message">Your Message</label>
+
+                <textarea
+                    id="message"
+                    name="message"
+                    placeholder="Write your message here..."
+                    required
+                ></textarea>
+
+
+                <button type="submit" id="submitButton">
+                    Send Message
+                </button>
+
+            </form>
+
+            <p id="status"></p>
+
+        </div>
+
+
+        <!-- Shop Details -->
+        <div class="shop-box">
+
+            <h2>Shop Details</h2>
+
+            <p>
+                 <strong>Address</strong><br>
+                Flower City 234 Road
+            </p>
+
+            <p>
+                 <strong>Phone</strong><br>
+                +91 9876543210
+            </p>
+
+            <p>
+                <strong>Email</strong><br>
+                flower@gmail.com
+            </p>
+
+            <p>
+                 <strong>Beautiful Flowers</strong><br>
+                Fresh flowers for every special moment.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- Footer -->
+    <footer>
+        Flower Gallery | All Rights Reserved
+    </footer>
+
+
+    <!-- Google Sheets Script -->
+    <script>
+
+        const form = document.getElementById("contactForm");
+
+        const status = document.getElementById("status");
+
+        const submitButton = document.getElementById("submitButton");
+
+
+        form.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+
+            /*
+             * IMPORTANT:
+             * Replace the URL below with your
+             * Google Apps Script Web App URL.
+             */
+
+            const scriptURL =
+                "YOUR_GOOGLE_APPS_SCRIPT_URL";
+
+
+            submitButton.disabled = true;
+
+            submitButton.textContent = "Sending...";
+
+            status.textContent = "";
+
+
+            const formData = new FormData(form);
+
+
+            fetch(scriptURL, {
+                method: "POST",
+                body: formData
+            })
+
+            .then(response => response.json())
+
+            .then(data => {
+
+                if (data.success) {
+
+                    status.textContent =
+                        "✓ Your message has been sent successfully!";
+
+                    status.style.color = "green";
+
+                    form.reset();
+
+                } else {
+
+                    status.textContent =
+                        "Something went wrong. Please try again.";
+
+                    status.style.color = "red";
+                }
+
+            })
+
+            .catch(error => {
+
+                console.error("Error:", error);
+
+                status.textContent =
+                    "Message could not be sent. Please try again.";
+
+                status.style.color = "red";
+
+            })
+
+            .finally(() => {
+
+                submitButton.disabled = false;
+
+                submitButton.textContent = "Send Message";
+
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>
+
+Google Apps Script
+
+Your Google Sheet should have these four columns:
+
+Timestamp | Name | Email | Message
+
+
+Then use this code in Extensions → Apps Script:
+
+function doPost(e) {
+
+    var sheet = SpreadsheetApp
+        .getActiveSpreadsheet()
+        .getActiveSheet();
+
+    var name = e.parameter.name || "";
+    var email = e.parameter.email || "";
+    var message = e.parameter.message || "";
+
+    sheet.appendRow([
+        new Date(),
+        name,
+        email,
+        message
+    ]);
+
+    return ContentService
+        .createTextOutput(
+            JSON.stringify({
+                success: true
+            })
+        )
+        .setMimeType(
+            ContentService.MimeType.JSON
+        );
+}
+
+Final setup
+Create your Google Sheet.
+Add Timestamp, Name, Email, Message in row 1.
+Open Extensions → Apps Script.
+Paste the Apps Script code.
+Click Deploy → New deployment.
+Select Web app.
+Set Execute as: Me.
+Set Who has access: Anyone.
+Deploy and copy the Web App URL.
+In contact.html, replace:
+const scriptURL = "YOUR_GOOGLE_APPS_SCRIPT_URL";
+
+
+with your actual Apps Script URL.
+
+After that, every submission from your Contact Us page will be added as a new row in your Google Sheet.
